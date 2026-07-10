@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NKY Mechanical Designs, LLC | Mechanical Engineering Consulting | Union, KY</title>
+<meta name="description" content="NKY Mechanical Designs, LLC. Independent mechanical engineering consulting practice serving Cincinnati, Northern Kentucky, and national clients. Senior product design, tooling, FEA, qualification testing, and automation. 28 years experience. 6 granted U.S. patents.">
+<meta name="author" content="Matthew E. Grubbs">
+<style>
+:root {
+  --bg: #FBFAF6;
+  --panel: #FFFFFF;
+  --text: #1B1B1B;
+  --muted: #5F5F5F;
+  --rule: #D9D5CB;
+  --accent: #1F4E79;
+  --accent-soft: #ECF1F6;
+  --mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Charter", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101010;
+    --panel: #161616;
+    --text: #E8E4DC;
+    --muted: #A6A29A;
+    --rule: #2A2A2A;
+    --accent: #7FB2E0;
+    --accent-soft: #182632;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* --- ASCII art blocks --- */
+pre.ascii {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  white-space: pre;
+  letter-spacing: 0;
+  text-align: center;
+}
+pre.divider {
+  font-family: var(--mono);
+  color: var(--rule);
+  font-size: 12px;
+  line-height: 1.1;
+  margin: 40px 0 8px;
+  padding: 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* --- Header --- */
+header.masthead {
+  text-align: center;
+  margin-bottom: 32px;
+}
+header.masthead h1 {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 20px 0 4px;
+  color: var(--text);
+}
+header.masthead .tagline {
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+header.masthead .contact-row {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  word-break: break-word;
+}
+header.masthead .contact-row a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+header.masthead .contact-row a:hover {
+  border-bottom-style: solid;
+}
+header.masthead .contact-sep {
+  padding: 0 8px;
+  color: var(--rule);
+}
+
+/* --- Section headings --- */
+section h2 {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+section h2 .num {
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 700;
+}
+
+section p {
+  margin: 0 0 14px;
+  color: var(--text);
+}
+section p.lede {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* --- Service grid --- */
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 32px;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .services { grid-template-columns: 1fr; }
+}
+.service h3 {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+.service p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* --- Experience list --- */
+.experience {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--text);
+}
+.experience .row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.experience .row:last-child { border-bottom: none; }
+.experience .years { color: var(--muted); }
+.experience .role { color: var(--text); }
+.experience .role .co { color: var(--accent); font-weight: 700; }
+@media (max-width: 640px) {
+  .experience .row { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* --- Credentials list --- */
+.credentials {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14.5px;
+  color: var(--text);
+}
+.credentials li {
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: var(--sans);
+}
+.credentials li:last-child { border-bottom: none; }
+.credentials li::before {
+  content: "◆ ";
+  color: var(--accent);
+  font-size: 10px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* --- Stack list --- */
+.stack dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.stack dt {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.stack dd {
+  margin: 0;
+  color: var(--text);
+  word-break: break-word;
+}
+@media (max-width: 640px) {
+  .stack dl { grid-template-columns: 1fr; }
+  .stack dt { margin-top: 8px; }
+}
+
+/* --- Contact block --- */
+.contact-block {
+  background: var(--accent-soft);
+  border: 1px solid var(--rule);
+  padding: 28px 24px;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: center;
+  border-radius: 2px;
+}
+.contact-block .name {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+.contact-block a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+.contact-block a:hover { border-bottom-style: solid; }
+.contact-block .loc {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin-top: 10px;
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 56px;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+}
+footer .rule {
+  color: var(--rule);
+  font-size: 12px;
+  margin-bottom: 12px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* --- Print --- */
+@media print {
+  :root {
+    --bg: #FFFFFF;
+    --panel: #FFFFFF;
+    --text: #000000;
+    --muted: #333333;
+    --rule: #AAAAAA;
+    --accent: #000000;
+    --accent-soft: #FFFFFF;
+  }
+  main { max-width: 100%; padding: 24px; }
+  pre.ascii, pre.divider { color: #000; }
+  section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<main>
+
+  <header class="masthead" role="banner">
+<pre class="ascii" aria-hidden="true">
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║        N K Y   M E C H A N I C A L   D E S I G N S            ║
+║                                                               ║
+║                        L   L   C                              ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+</pre>
+    <h1>NKY MECHANICAL DESIGNS, LLC</h1>
+    <p class="tagline">Independent Mechanical Engineering Consulting &nbsp;·&nbsp; Union, Kentucky</p>
+    <div class="contact-row">
+      <a href="tel:+18592406381">859.240.6381</a>
+      <span class="contact-sep">|</span>
+      <a href="mailto:sales@nkydesigns.com">sales@nkydesigns.com</a>
+      <span class="contact-sep">|</span>
+      <a href="https://www.linkedin.com/in/mattgrubbs" target="_blank" rel="noopener">linkedin.com/in/mattgrubbs</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="about">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="about"><span class="num">01</span>ABOUT THE PRACTICE</h2>
+    <p class="lede">
+      NKY Mechanical Designs is an independent mechanical engineering consulting
+      practice serving Cincinnati, Northern Kentucky, and clients across the
+      United States. We help small and mid sized manufacturers, product companies,
+      and inventors move complex ideas from concept to production with senior
+      engineering firepower on demand.
+    </p>
+    <p>
+      Founded by Matthew E. Grubbs, a BSME with twenty eight years of hands on
+      product design, tooling, qualification testing, and manufacturing
+      engineering across defense, aerospace, automotive Tier 1, and consumer
+      product companies. Named inventor on six granted and fifteen filed United
+      States patents. Every engagement runs through the same person you meet on
+      day one.
+    </p>
+  </section>
+
+  <section aria-labelledby="services">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="services"><span class="num">02</span>SERVICES</h2>
+
+    <div class="services">
+      <div class="service">
+        <h3>&gt; Product Design &amp; Development</h3>
+        <p>Concept through production. 3D CAD in Creo, SolidWorks, Solid Edge, Inventor, and CATIA. GD&amp;T detailed drawings to ASME Y14.5. Design for manufacturing with domestic and international contract manufacturers.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Tooling, Fixtures &amp; SPM</h3>
+        <p>Production tooling, jigs, gauges, and special purpose machinery. Access and clearance studies. 2D drawings and 3D models ready for fabrication and test. Full design evolution from concept through delivery.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; FEA &amp; Simulation</h3>
+        <p>Structural, modal, random vibration, shock, and thermal analysis in Creo Simulate and Inventor FEA. Load cases, boundary conditions, and acceptance criteria that stand up to design review.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Qualification &amp; DV Testing</h3>
+        <p>Design verification and qualification per MIL-STD-810 thermal, vibration, and shock. Test plan authoring, execution support, and root cause failure analysis using 8D, 5 Whys, DFMEA, and PFMEA.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Automation &amp; Robotics</h3>
+        <p>PLC programming on Allen Bradley and Mitsubishi platforms. Robotic cell design and integration with Fanuc, Motoman, and Panasonic. Vision systems, poka yoke fixturing, and Lean cell layout.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Prototyping &amp; Fabrication</h3>
+        <p>Quick turn, low cost proof of concept prototypes in additive (FDM, SLA), CNC machining, sheet metal, and welded assemblies. Iterate fast to validate design intent before you commit to tooling.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Patent &amp; IP Support</h3>
+        <p>Invention disclosure authoring, freedom to operate analysis, prior art review, and technical drawing support for provisional and utility filings. Six granted and fifteen filed patents of experience.</p>
+      </div>
+
+      <div class="service">
+        <h3>&gt; Reverse Engineering</h3>
+        <p>Legacy and obsolete parts brought back to life. 3D scan to CAD model to fabricated replacement. Ideal for line down emergencies and long tail spare parts that vendors no longer support.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="experience">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="experience"><span class="num">03</span>SELECTED EXPERIENCE</h2>
+    <div class="experience">
+      <div class="row">
+        <div class="years">2019 · 2026</div>
+        <div class="role"><span class="co">L3Harris Technologies</span><br>Senior New Product Design Engineer, promoted to Associate Manager, Mechanical Design. Hardened electromechanical fuze and safe and arm subsystems.</div>
+      </div>
+      <div class="row">
+        <div class="years">2008 · 2019</div>
+        <div class="role"><span class="co">Siffron, Inc.</span><br>Senior Design Engineer. Consumer and retail product design, custom fixtures, LED lighting. Inventor on fifteen patent applications, six granted.</div>
+      </div>
+      <div class="row">
+        <div class="years">2002 · 2007</div>
+        <div class="role"><span class="co">Faurecia, Inc.</span><br>Senior Project and Manufacturing Engineer. Tier 1 automotive. Owned three million dollars in BMW and Honda tooling. Cut linear transfer line PPM from 1200 to 150.</div>
+      </div>
+      <div class="row">
+        <div class="years">1998 · 2002</div>
+        <div class="role"><span class="co">Arvin Sango, Inc.</span><br>Manufacturing Engineer. Launched the Toyota Corolla Lean Manufacturing exhaust line. Robotic welding, CNC bending, sheet metal forming, resistance welding, and CMM inspection.</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="stack" class="stack">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="stack"><span class="num">04</span>CAPABILITIES &amp; TOOLING</h2>
+    <dl>
+      <dt>3D CAD</dt>
+      <dd>Creo (Pro/E), SolidWorks, Solid Edge, Autodesk Inventor, CATIA V5</dd>
+
+      <dt>PLM / PDM</dt>
+      <dd>PTC Windchill, ECN/ECO change control, BOM management, drawing release</dd>
+
+      <dt>Simulation</dt>
+      <dd>Creo Simulate, Autodesk Inventor FEA, DFMEA, PFMEA</dd>
+
+      <dt>Standards</dt>
+      <dd>ASME Y14.5, ASME Y14.100, MIL-STD-810, MIL-STD-331, JOTP-52, ITAR, EAR</dd>
+
+      <dt>Tolerance</dt>
+      <dd>1D and 2D tolerance stack up, RSS, MRSS, Worst Case</dd>
+
+      <dt>Automation</dt>
+      <dd>Allen Bradley and Mitsubishi PLC / HMI, Fanuc, Motoman, Panasonic robotics</dd>
+
+      <dt>Fabrication</dt>
+      <dd>Additive (FDM, SLA), CNC, sheet metal, casting, injection molding, MIG, TIG, resistance and robotic welding</dd>
+
+      <dt>Programming</dt>
+      <dd>Python (CAD automation, scripting), C, Arduino</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="cred">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="cred"><span class="num">05</span>CREDENTIALS</h2>
+    <ul class="credentials">
+      <li>B.S. Mechanical Engineering, University of Cincinnati, College of Engineering</li>
+      <li>Six granted United States patents, fifteen filed applications</li>
+      <li>Sole L3Harris presenter, NDIA Fuze Conference, 2021</li>
+      <li>United States Citizen, experienced supporting ITAR and EAR export controlled programs</li>
+      <li>Recipient, Faurecia "Best Launch 2007" recognition, BMW program, North America</li>
+      <li>Twenty eight years of continuous mechanical design and manufacturing engineering</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="industries">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="industries"><span class="num">06</span>INDUSTRIES SERVED</h2>
+<pre class="ascii" style="font-size:11px; color:var(--muted); text-align:left; margin:8px 0 0;">
+  ▸  DEFENSE  &  AEROSPACE  ...............  Fuze, S&amp;A, munitions, hardened electronics
+  ▸  CONSUMER  &  RETAIL  PRODUCTS  ........  Fixtures, merchandising, LED lighting
+  ▸  AUTOMOTIVE  ...........................  Tier 1 tooling, welding cells, Lean lines
+  ▸  INDUSTRIAL  AUTOMATION  ...............  PLC, robotics, machine tending, SPM
+  ▸  CONTRACT  MANUFACTURERS  ..............  DFM support, drawings, qualification
+  ▸  INDIVIDUAL  INVENTORS  ................  Patent support, prototyping, licensing
+</pre>
+  </section>
+
+  <section aria-labelledby="contact">
+<pre class="divider" aria-hidden="true">
+────────────────────────────────────────────────────────────────
+</pre>
+    <h2 id="contact"><span class="num">07</span>ENGAGE</h2>
+    <p>
+      Most engagements start with a fifteen minute call to scope the problem.
+      No cost, no obligation. If we are the right fit, we will put a simple
+      statement of work together and get moving. If we are not, you will get a
+      referral to someone who is.
+    </p>
+    <div class="contact-block">
+      <div class="name">MATTHEW E. GRUBBS &nbsp;·&nbsp; PRINCIPAL</div>
+      <div>
+        <a href="tel:+18592406381">859.240.6381</a>
+      </div>
+      <div>
+        <a href="mailto:sales@nkydesigns.com?subject=NKY%20Mechanical%20Designs%20Inquiry">sales@nkydesigns.com</a>
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/in/mattgrubbs" target="_blank" rel="noopener">linkedin.com/in/mattgrubbs</a>
+      </div>
+      <div class="loc">Union, Kentucky &nbsp;·&nbsp; Serving the Cincinnati and Northern Kentucky metro and remote clients nationwide</div>
+    </div>
+  </section>
+
+  <footer>
+<pre class="rule" aria-hidden="true">
+════════════════════════════════════════════════════════════════
+</pre>
+    <div>NKY MECHANICAL DESIGNS, LLC &nbsp;·&nbsp; UNION, KENTUCKY</div>
+    <div style="margin-top:6px;">&copy; 2026 &nbsp;·&nbsp; ALL RIGHTS RESERVED</div>
+  </footer>
+
+</main>
+</body>
+</html>
